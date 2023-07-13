@@ -65,17 +65,21 @@ or not theme_secondary_sidebar_items %}
   </button>
 
   {# checkbox to toggle primary sidebar #}
-  <input type="checkbox"
+  <input aria-controls="primary-sidebar"
+         aria-labelledby="primary-label"
+          type="checkbox"
           class="sidebar-toggle"
           name="__primary"
           id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <label class="overlay overlay-primary" for="__primary" aria-label="toggle main sidebar" id="primary-label"></label>
   {# Checkboxes to toggle the secondary sidebar #}
-  <input type="checkbox"
+  <input aria-controls="secondary-sidebar"
+         aria-labelledby="secondary-label"
+          type="checkbox"
           class="sidebar-toggle"
           name="__secondary"
           id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <label class="overlay overlay-secondary" for="__secondary" aria-label="toggle secondary sidebar" id="secondary-label"></label>
   {# A search field pop-up that will only show when the search button is clicked #}
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -92,7 +96,7 @@ or not theme_secondary_sidebar_items %}
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       {# Primary sidebar #}
-      <div class="bd-sidebar-primary bd-sidebar{% if not sidebars %} hide-on-wide{% endif %}">
+      <div class="bd-sidebar-primary bd-sidebar{% if not sidebars %} hide-on-wide{% endif %}" id="primary-sidebar">
         {% include "sections/sidebar-primary.html" %}
       </div>
       {# Using an ID here so that the skip-link works #}
@@ -127,7 +131,7 @@ or not theme_secondary_sidebar_items %}
             {# Secondary sidebar #}
             {% block docs_toc %}
               {% if not remove_sidebar_secondary %}
-                <div class="bd-sidebar-secondary bd-toc">{% include "sections/sidebar-secondary.html" %}</div>
+                <div class="bd-sidebar-secondary bd-toc" id="secondary-sidebar">{% include "sections/sidebar-secondary.html" %}</div>
               {% endif %}
             {% endblock docs_toc %}
           </div>

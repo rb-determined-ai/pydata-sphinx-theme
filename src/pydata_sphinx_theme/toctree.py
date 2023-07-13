@@ -352,7 +352,7 @@ def add_collapse_checkboxes(soup: BeautifulSoup) -> None:
             continue
 
         label = soup.new_tag(
-            "label", attrs={"for": checkbox_name, "class": "toctree-toggle"}
+            "label", attrs={"for": checkbox_name, "class": "toctree-toggle", "aria-label": "expand table of contents group"}
         )
         label.append(soup.new_tag("i", attrs={"class": "fa-solid fa-chevron-down"}))
         if "toctree-l0" in classes:
